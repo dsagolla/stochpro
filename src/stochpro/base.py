@@ -14,8 +14,14 @@ class RandomProcess(ABC):
 
     Parameters
     ----------
-    t : float, default 1
-        The right hand side of the time interval :math:`[0,t)`.
+    t : float, optional
+        The right hand side of the time interval :math:`[0,t)`, by
+        default 1.0.
+
+    Methods
+    -------
+    sample
+    sample_at
     """
 
     rng = np.random.default_rng()
