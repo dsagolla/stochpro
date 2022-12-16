@@ -17,6 +17,7 @@ class RandomProcess(ABC):
     t : float, default 1
         The right hand side of the time interval :math:`[0,t)`.
     """
+
     rng = np.random.default_rng()
 
     def __init__(self, t: float = 1.0) -> None:
