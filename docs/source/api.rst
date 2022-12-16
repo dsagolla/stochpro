@@ -1,12 +1,10 @@
-.. _api:
-
 =============
 API Reference
 =============
 
-------------------
-Integral Equations
-------------------
+--------------------
+Stochastic Processes
+--------------------
 
 .. autosummary::
     :toctree: generated
