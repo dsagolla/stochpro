@@ -23,7 +23,9 @@ class BrownianMotion(RandomProcess):
         pass
 
     def sample(self, n: int) -> np.array:
-        """_summary_
+        """Generate a sample of a Brownian motion.
+
+        Generate a realization with :math:`n` increments.
 
         Parameters
         ----------
@@ -38,7 +40,8 @@ class BrownianMotion(RandomProcess):
         pass
 
     def sample_at(self, times: Iterable[float]) -> np.array:
-        """_summary_
+        """Generate a sample of the Brownian motion at specified times
+        from zero.
 
         Parameters
         ----------
