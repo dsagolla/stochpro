@@ -26,7 +26,7 @@ A python package for sampling from stochastic processes.
     .. grid-item-card:: API Reference
         :img-top: https://raw.githubusercontent.com/dsagolla/stochpro/main/docs/source/_static/card-icons/magnifying-glass-solid.svg
         :text-align: center
-        :link: reference/api
+        :link: api
         :link-type: any
 
 
