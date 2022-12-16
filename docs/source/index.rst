@@ -1,5 +1,5 @@
 StochPro 
-######
+########
 
 .. toctree::
    :maxdepth: 1
