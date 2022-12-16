@@ -55,3 +55,5 @@ pip-selfcheck.json
 console.ipynb
 .eggs
 dist
+stochpro.egg-info
+__pycache__
