@@ -64,33 +64,42 @@ class GaussianProcess(RandomProcess):
         super().__init__(t)
 
     def sample(self, n: int) -> np.array:
-        """_summary_
+        """Generate a sample of a Gaussian process.
+
+        Generate a realization with :math:`n` increments.
 
         Parameters
         ----------
         n : int
-            _description_
+            Number of increments.
 
         Returns
         -------
         np.array
-            _description_
+            A sample of the Gaussian process.
         """
+        delta_t = 1.0 * self.t / n
+
+        gp_sample = self.rng.normal(scale=np.sqrt(delta_t), size=n)
+
         times = generate_times(end=self.t, n=n)
 
-        return np.zeros(1)
+        return gp_sample
 
     def sample_at(self, times: Iterable[float]) -> np.array:
-        """_summary_
+        """Generate a sample of a Gaussian process at specified times
+        from zero.
 
         Parameters
         ----------
         times : array-like
-            A time vector :math:`(t_1, \\ldots, t_n)`.
+            A strictly increasing time vector
+            :math:`(t_1, \\ldots, t_n)`.
 
         Returns
         -------
         np.array
-            _description_
+            A sample of the Gaussian process at
+            :math:`(t_1, \\ldots, t_n)`.
         """
         return np.zeros(1)
