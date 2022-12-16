@@ -57,3 +57,4 @@ console.ipynb
 dist
 stochpro.egg-info
 __pycache__
+docs/build
