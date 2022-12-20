@@ -13,5 +13,5 @@ Stochastic Processes
     :template: autosummary/class.rst
     
     stochpro.GaussianProcess
-    stochpro.BrownianMotion
-    stochpro.ItoProcess
+..    stochpro.BrownianMotion
+..    stochpro.ItoProcess
