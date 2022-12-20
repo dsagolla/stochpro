@@ -17,35 +17,29 @@ class RandomProcess(ABC):
     Parameters
     ----------
     t : float, optional
-        The right hand side of the time interval :math:`[0,t)`, by
-        default 1.0.
+        The right hand side of the time interval [0, t], by default 1.0.
 
     Methods
     -------
     sample
     sample_at
+
+    Raises
+    ------
+    TypeError
+        The end of the interval [0, t] is no float.
+    ValueError
+        The end of the interval [0, t] is not positive.
     """
 
-    rng: np.random.Generator = np.random.default_rng()
+    _rng: np.random.Generator = np.random.default_rng()
 
     def __init__(self, t: float = 1.0) -> None:
-        self.t = t
-
-    @property
-    def t(self) -> float:
-        return self._t
-
-    @t.setter
-    def t(self, value: float) -> None:
-        if value < 0:
-            raise ValueError(
-                'The end of the interval [0, t] must be positive.'
-            )
-        if not isinstance(value, float):
-            raise TypeError(
-                'The end of the interval [0, t] must be a float.'
-            )
-        self._t = value
+        if not isinstance(t, float):
+            raise TypeError('The end of the interval must be a float.')
+        if t <= 0:
+            raise ValueError('The end of the interval must be positive.')
+        self._t = t
 
     def _times(self, n: int) -> np.array:
         """Generate times associated with n increments on [0, t].
@@ -59,8 +53,16 @@ class RandomProcess(ABC):
         -------
         np.array
             A vector of times.
+
+        Raises
+        ------
+        TypeError
+            Number of increments is not an integer.
         """
-        return generate_times(n)
+        if not isinstance(n, int):
+            raise TypeError('Number of increments must be an integer.')
+
+        return generate_times(end=self._t, n=n)
 
     @abstractmethod
     def sample(self, n: int) -> np.array:
